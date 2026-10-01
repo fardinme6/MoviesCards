@@ -1,4 +1,3 @@
-import { useState } from "react";
 export default function MovieCard({
   filmName,
   releaseDate,
@@ -6,8 +5,8 @@ export default function MovieCard({
   country,
   rate,
   imageUrl,
+  movieURL,
 }) {
-  const [isAdded, setIsAdded] = useState(false);
   return (
     <div className="flex flex-col h-full p-4 bg-yellow-600 rounded-lg shadow-lg w-full  font-serif">
       <img
@@ -22,12 +21,14 @@ export default function MovieCard({
       <p className="text-gray-800 font-bold mb-1">Genre: {genre}</p>
       <p className="text-gray-800 font-bold mb-1">Country: {country}</p>
       <p className="text-gray-800 font-bold mb-3">Rating: {rate}</p>
-      <button
-        className={`w-full mt-auto p-3 rounded-xl cursor-pointer ${isAdded ? "bg-white text-black": "bg-black text-white hover:bg-white hover:text-black"} `}
-        onClick={() => setIsAdded(true)}
+      <a
+        href={movieURL}
+        target="_blank"
+        className={`w-full text-center p-3 rounded-xl cursor-pointer bg-black text-white text-xl hover:bg-white hover:text-black`}
+        onClick={() => movieURL()}
       >
-        {isAdded ? "Added✅" : "Add to Waitlist"}
-      </button>
+        Watch
+      </a>
     </div>
   );
 }

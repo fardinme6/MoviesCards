@@ -16,6 +16,7 @@ export default function App() {
       genre: "Fantasy/Crime",
       country: "United States of America 🇺🇸",
       rate: 8.6,
+      movieURL: "https://movie.af/fa/video/ldjic8"
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ export default function App() {
       genre: "Drama/Crime",
       country: "United States of America 🇺🇸",
       rate: 9.3,
+      movieURL: "https://movie.af/fa/video/nhyqef"
     },
     {
       id: 3,
@@ -34,6 +36,7 @@ export default function App() {
       genre: "Drama",
       country: "India 🇮🇳",
       rate: 8.7,
+      movieURL: "https://movie.af/fa/video/nyudsc"
     },
     {
       id: 4,
@@ -43,6 +46,7 @@ export default function App() {
       genre: "Action/Thriller",
       country: "India 🇮🇳",
       rate: 6.2,
+      movieURL:"https://movie.af/fa/video/we2a4l"
     },
     {
       id: 5,
@@ -52,6 +56,7 @@ export default function App() {
       genre: "Comedy",
       country: "Iran 🇮🇷",
       rate: 3.3,
+      movieURL:"https://movie.af/fa/video/jt4xtr"
     },
     {
       id: 6,
@@ -61,6 +66,7 @@ export default function App() {
       genre: "Drama/Melodrama",
       country: "Afghanistan 🇦🇫",
       rate: 7.5,
+      movieURL:"https://movie.af/fa/video/jxgyme"
     },
     {
       id: 7,
@@ -70,6 +76,7 @@ export default function App() {
       genre: "Adventure/Comedy",
       country: "India 🇮🇳",
       rate: 6.5,
+      movieURL:"https://movie.af/fa/video/hgsby2"
     },
     {
       id: 8,
@@ -79,6 +86,7 @@ export default function App() {
       genre: "Comedy",
       country: "India 🇮🇳",
       rate: 8.1,
+      movieURL:"https://movie.af/fa/video/wtjhin"
     },
     {
       id: 9,
@@ -88,6 +96,7 @@ export default function App() {
       genre: "War/Action",
       country: "United States of America 🇺🇸",
       rate: 7.5,
+      movieURL:"https://movieland.af/watch/mo/i3mxai"
     },
     {
       id: 10,
@@ -97,6 +106,7 @@ export default function App() {
       genre: "Romance/Comedy ",
       country: "United States of America 🇺🇸",
       rate: 6,
+      movieURL:"https://movie.af/fa/video/aiarts"
     },
     {
       id: 11,
@@ -106,6 +116,7 @@ export default function App() {
       genre: "Sport/Action ",
       country: "India 🇮🇳",
       rate: 8.3,
+      movieURL:"https://movie.af/fa/video/sp9979"
     },
     {
       id: 12,
@@ -115,6 +126,7 @@ export default function App() {
       genre: "Romance/Drama ",
       country: "Iran 🇮🇷",
       rate: 3,
+      movieURL:"https://movie.af/fa/video/3goi85"
     },
   ];
   const filteredMovies = movies.filter(
@@ -214,6 +226,7 @@ export default function App() {
               genre={movie.genre}
               country={movie.country}
               rate={movie.rate}
+              movieURL={movie.movieURL}
             />
           ))}
         </div>
