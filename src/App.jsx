@@ -63,7 +63,7 @@ export default function App() {
       image: "/kiterunner.jpg",
       title: "The Kite Runner",
       releaseDate: 2007,
-      genre: "Drama/Melodrama",
+      genre: "Drama",
       country: "Afghanistan 🇦🇫",
       rate: 7.5,
       movieURL:"https://movie.af/fa/video/jxgyme"
@@ -128,25 +128,150 @@ export default function App() {
       rate: 3,
       movieURL:"https://movie.af/fa/video/3goi85"
     },
+    {
+      id: 13,
+      image: "/13days.jpg",
+      title: "13 Days 13 Night",
+      releaseDate: 2025,
+      genre: "War/Drama ",
+      country: "France 🇫🇷",
+      rate: 6.7,
+      movieURL:"https://movie.af/fa/video/jdy3c9"
+    },
+    {
+      id: 14,
+      image: "/ballerina.jpg",
+      title: "13 Days 13 Night",
+      releaseDate: 2025,
+      genre: "Action/Thriller ",
+      country: "United States of America 🇺🇸",
+      rate: 6.8,
+      movieURL:"http://movie.af/fa/video/sgpve1"
+    },
+    {
+      id: 15,
+      image: "/laalsingh.jpg",
+      title: "Laal Singh Chaddha",
+      releaseDate: 2022,
+      genre: "Romance/Comedy",
+      country: "India 🇮🇳",
+      rate: 5.6,
+      movieURL:"https://movie.af/fa/video/q88fbl"
+    },
+    {
+      id: 16,
+      image: "/diplomat.jpg",
+      title: "The Diplomat",
+      releaseDate: 2025,
+      genre: "Thriller/Drama",
+      country: "India 🇮🇳",
+      rate: 7,
+      movieURL:"https://movie.af/fa/video/6xicfj"
+    },
+    {
+      id: 17,
+      image: "/spring.jpg",
+      title: "Tell Spring Not to Come This Year",
+      releaseDate: 2015,
+      genre: "War/Documentary",
+      country: "Afghanistan 🇦🇫",
+      rate: 6.9,
+      movieURL:"https://movie.af/fa/video/shlfas"
+    },
+    {
+      id: 18,
+      image: "/glassman.jpg",
+      title: "The Man with Glasses",
+      releaseDate: 2025,
+      genre: "Comedy",
+      country: "Iran 🇮🇷",
+      rate: 5.7,
+      movieURL:"https://movie.af/fa/video/2xebt1"
+    },
+    {
+      id: 19,
+      image: "/uri.jpg",
+      title: "Uri: The Surgical Strike",
+      releaseDate: 2019,
+      genre: "Action/War",
+      country: "India 🇮🇳",
+      rate: 8.2,
+      movieURL:"https://movie.af/fa/video/9vajpf"
+    },
+    {
+      id: 20,
+      image: "/major.jpg",
+      title: "Major",
+      releaseDate: 2022,
+      genre: "Action/Thriller",
+      country: "India 🇮🇳",
+      rate: 8.1,
+      movieURL:"https://movie.af/fa/video/p1akl0"
+    },
+    {
+      id: 21,
+      image: "/federer.jpg",
+      title: "Federer: Twelve Final Days",
+      releaseDate: 2024,
+      genre: "Documentary/Sport ",
+      country: "United Kingdom 🇬🇧",
+      rate: 7.9,
+      movieURL:"https://movie.af/fa/video/6yvltt"
+    },
+    {
+      id: 22,
+      image: "/airlift.jpg",
+      title: "Airlift",
+      releaseDate: 2016,
+      genre: "Thriller/War",
+      country: "India 🇮🇳",
+      rate: 7.3,
+      movieURL:"https://movie.af/fa/video/3p9lyg"
+    },
+    {
+      id: 23,
+      image: "/rebel.jpg",
+      title: "Rebel",
+      releaseDate: 2022,
+      genre: "Thriller/Action",
+      country: "Belgium 🇧🇪",
+      rate: 7.3,
+      movieURL:"https://movie.af/fa/video/d72izc"
+    },
+    {
+      id: 24,
+      image: "/beekeeper.jpg",
+      title: "The Beekeeper",
+      releaseDate: 2024,
+      genre: "Thriller/Action",
+      country: "United Kingdom 🇬🇧",
+      rate: 6.3,
+      movieURL:"https://movie.af/fa/video/pc9ug0"
+    },
   ];
   const filteredMovies = movies.filter(
     (movie) =>
       movie.title.toLowerCase().includes(search.toLowerCase()) &&
       (genre === "All" || movie.genre.includes(genre)) &&
-      (country === "All" || movie.country.includes(country)) &&
+      (country === "All" ||
+  (country === "Other Countries"
+    ? movie.country.includes("France") ||
+      movie.country.includes("United Kingdom") ||
+      movie.country.includes("Belgium")
+    : movie.country.includes(country))) &&
       (releaseDate === "All" || String(movie.releaseDate) === releaseDate),
   );
 
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <div className="flex justify-center w-[93%] mx-auto flex-wrap gap-3 p-4 bg-yellow-600 rounded-lg sm:w-1/2 lg:w-1/2">
+      <div className="flex justify-center w-[95%] mx-auto flex-wrap gap-3 p-4 bg-yellow-600 rounded-lg sm:w-1/2 lg:w-1/2">
         <input
           value={search}
           type="text"
           placeholder="Search Movie..."
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-lg p-3 bg-black text-white sm:w-[30%] lg:w-[-30%]"
+          className="w-full rounded-lg p-3 bg-black text-white"
         />
         <select
           value={genre}
@@ -160,6 +285,10 @@ export default function App() {
           <option value="Comedy">Comedy</option>
           <option value="Adventure">Adventure</option>
           <option value="War">War</option>
+          <option value="Romance">Romance</option>
+          <option value="Sport">Sport</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Thriller">Thriller</option>
         </select>
         <select
           value={country}
@@ -171,6 +300,7 @@ export default function App() {
           <option value="India">India</option>
           <option value="Iran">Iran</option>
           <option value="Afghanistan">Afghanistan</option>
+          <option value="Other Countries">Other Countries</option>
         </select>
         <select
           className="rounded-lg p-3 bg-black text-white flex-1"
@@ -195,7 +325,7 @@ export default function App() {
             setCountry("All");
             setReleaseDate("All");
           }}
-          className="w-10 h-15 object-contain flex-1 cursor-pointer"
+          className="w-5 h-15 object-contain flex-1 cursor-pointer"
         />
       </div>
       {filteredMovies.length === 0 ? (
